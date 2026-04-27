@@ -46,6 +46,10 @@ int bill_count= 0;
 //INVENTORY
 void save_inventory(){
     FILE *f=fopen("inventory.txt","w");
+    if( f == NULL ){
+        printf("error opening inventory file \n");
+        return;
+    }
     fprintf(f,"%d\n",item_count);
     for(int i=0;i<item_count;i++){
         fprintf(f,"%s\n%d\n%.2f\n",
